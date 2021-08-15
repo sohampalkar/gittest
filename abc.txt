@@ -16,3 +16,22 @@ spring:
     
   application:
     name: CUSTOMER-SERVICE
+    
+    
+spring:
+  application:
+    name: GATEWAY-SERVICE
+  cloud:
+    gateway:
+      routes:
+        - id: customer-service
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/customer/**
+          
+ 
+      
+                
+
+server:
+  port: 8989
